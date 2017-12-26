@@ -14,8 +14,8 @@ public class MapGenerate : MonoBehaviour {
 
 	public int[,,] map;		//Map array, holds all info for map generation and save/load
 	private int mapRow = 50;	//
-	private int mapCol = 50;	//
-	private int mapBroke = 1;
+	private int mapCol = 300;	//
+	private int mapBroke = 2;
 	private int mapCull; 		//How many times to repeat iterative work
 
 
@@ -39,6 +39,8 @@ public class MapGenerate : MonoBehaviour {
 
 	void iniMap(){ 			// Initialize map
 		int chance = 100;
+
+		//Sets all blocks to initially be WALL
 		for (int i = 1; i < mapRow-1; i++) {
 			for (int j = 1; j < mapCol-1; j++) {
 				//Debug.Log ("i" + i + " j" + j );
@@ -46,7 +48,7 @@ public class MapGenerate : MonoBehaviour {
 			}
 		}
 		
-		//*/Look into this l8r
+		//*/Random chance to change block FROM Wall, TO another inst
 		for (int i = 0; i < mapRow; i++) {
 			for (int j = 0; j < mapCol; j++) {
 				if(callChance(chance,((chance)*9/11))){
@@ -55,7 +57,8 @@ public class MapGenerate : MonoBehaviour {
 					if(temp == 0){
 						map [i, j, 0] = (int)inst.VOID;
 					}else if (temp == 1){
-						map [i, j, 0] = (int)inst.WALL;
+						//map [i, j, 0] = (int)inst.WALL;
+						//changes nothing
 					}else if (temp == 2){
 						map [i, j, 0] = (int)inst.GEMS;
 					}else if (temp == 3){
@@ -76,7 +79,6 @@ public class MapGenerate : MonoBehaviour {
 			for (int j = 1; j < mapCol; j++) {
 				//Debug.Log ("i" + i + " j" + j + "Populate");
 				if(map[i,j,0] == (int)inst.VOID){
-					
 				}
 				else if(map[i,j,0] == (int)inst.WALL){
 					Instantiate (Wall, new Vector2 (-i, -j), Quaternion.identity);
