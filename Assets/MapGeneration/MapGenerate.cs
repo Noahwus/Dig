@@ -12,9 +12,10 @@ public class MapGenerate : MonoBehaviour {
 
 	//public GameObject player;
 
-	public int[,] map;		//Map array, holds all info for map generation and save/load
+	public int[,,] map;		//Map array, holds all info for map generation and save/load
 	private int mapRow = 50;	//
-	private int mapCol = 300;	//
+	private int mapCol = 50;	//
+	private int mapBroke = 1;
 	private int mapCull; 		//How many times to repeat iterative work
 
 
@@ -22,11 +23,12 @@ public class MapGenerate : MonoBehaviour {
 	void Start () {
 		iniResources ();
 		iniMap ();
+		populateMap ();
 	}
 
 	void iniResources(){		// initialize the array, determine cull iterations
 		//itialize 2d Array
-		map = new int[mapRow,mapCol];
+		map = new int[mapRow,mapCol,mapBroke];
 
 		//variable used to corrode the map, make caverns. iteration is based on map size
 		mapCull = (mapRow * mapCol) / 2;
@@ -37,53 +39,56 @@ public class MapGenerate : MonoBehaviour {
 
 	void iniMap(){ 			// Initialize map
 		int chance = 100;
-		for (int i = 0; i > mapRow; i--) {
-			for (int j = 0; j > mapCol; j--) {
-				map [mapRow, mapCol] = (int)inst.WALL;
+		for (int i = 1; i < mapRow-1; i++) {
+			for (int j = 1; j < mapCol-1; j++) {
+				//Debug.Log ("i" + i + " j" + j );
+				map [i, j, 0] = (int)inst.WALL;
 			}
 		}
 		
-		//Look into this l8r
-		/*for (int i = 0; i > mapRow; i--) {
-			for (int j = 0; j > mapCol; j--) {
-				if(callChance(chance,(chance*(9/11)){
-					int temp = Random.Range(0,4);
+		//*/Look into this l8r
+		for (int i = 0; i < mapRow; i++) {
+			for (int j = 0; j < mapCol; j++) {
+				if(callChance(chance,((chance)*9/11))){
+					int temp = Random.Range(0,5);
+					Debug.Log (temp);
 					if(temp == 0){
-						
+						map [i, j, 0] = (int)inst.VOID;
 					}else if (temp == 1){
-						
+						map [i, j, 0] = (int)inst.WALL;
 					}else if (temp == 2){
-						
+						map [i, j, 0] = (int)inst.GEMS;
 					}else if (temp == 3){
-						
+						map [i, j, 0] = (int)inst.ROPE;
 					}else if (temp == 4){
-						
+						map [i, j, 0] = (int)inst.POST;
 					}else{
 					
 					}
 				}
 			}
 		}
-*/
+//*/
 	}
 		
 	void populateMap(){		//Populate the map based on the information stored in the map array (-i, -j?)
-		for (int i = 0; i > mapRow; i--) {
-			for (int j = 0; j > mapCol; j--) {
-				if(map[i,j] == (int)inst.VOID){
+		for (int i = 1; i < mapRow; i++) {
+			for (int j = 1; j < mapCol; j++) {
+				//Debug.Log ("i" + i + " j" + j + "Populate");
+				if(map[i,j,0] == (int)inst.VOID){
 					
 				}
-				else if(map[i,j] == (int)inst.WALL){
-					//Instantiate (Wall, new Vector2 (-i, -j), Quaternion.identity);
+				else if(map[i,j,0] == (int)inst.WALL){
+					Instantiate (Wall, new Vector2 (-i, -j), Quaternion.identity);
 				}
-				else if(map[i,j] == (int)inst.GEMS){
-					//Instantiate (Gems, new Vector2 (-i, -j), Quaternion.identity);
+				else if(map[i,j,0] == (int)inst.GEMS){
+					Instantiate (Gems, new Vector2 (-i, -j), Quaternion.identity);
 				}
-				else if(map[i,j] == (int)inst.ROPE){
-					//Instantiate (Rope, new Vector2 (-i, -j), Quaternion.identity);
+				else if(map[i,j,0] == (int)inst.ROPE){
+					Instantiate (Rope, new Vector2 (-i, -j), Quaternion.identity);
 				}
-				else if(map[i,j] == (int)inst.POST){
-					//Instantiate (Post, new Vector2 (-i, -j), Quaternion.identity);
+				else if(map[i,j,0] == (int)inst.POST){
+					Instantiate (Post, new Vector2 (-i, -j), Quaternion.identity);
 				}
 			}
 		}
