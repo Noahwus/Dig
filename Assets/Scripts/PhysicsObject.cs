@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class PhysicsObject : MonoBehaviour {
 
-	public float gravModifier = 1f;
+	public float gravModifier = .8f;
 	public float minGroundNormalY = .65f;
 
 	protected bool grounded;
 	protected Vector2 groundNormal;
+	protected Vector2 targetVelocity;
 
 	protected Vector2 velocity;
 	protected Rigidbody2D rb2d;
@@ -29,13 +30,30 @@ public class PhysicsObject : MonoBehaviour {
 		contactFilter.SetLayerMask (Physics2D.GetLayerCollisionMask (gameObject.layer));
 		contactFilter.useLayerMask = true;
 	}
-	
+
+	void Update(){
+		targetVelocity = Vector2.zero;
+		ComputeVelocity ();
+	}
+
+	protected virtual void ComputeVelocity(){
+
+	}
 
 	void FixedUpdate () {
 		velocity += gravModifier * Physics2D.gravity * Time.deltaTime;
+		velocity.x = targetVelocity.x;
+
 		grounded = false;
+
 		Vector2 deltaPosition = velocity * Time.deltaTime;
-		Vector2 move = Vector2.up * deltaPosition.y;
+
+		//Calculates vector along ground (calculates for slope angle)
+		Vector2 moveAlongGround = new Vector2 (groundNormal.y, groundNormal.x);
+		Vector2 move = moveAlongGround * deltaPosition.x;
+		Movement (move, false);
+
+		move = Vector2.up * deltaPosition.y;
 		Movement (move, true);
 	}
 

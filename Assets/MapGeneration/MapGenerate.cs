@@ -13,6 +13,7 @@ public class MapGenerate : MonoBehaviour {
 	//public GameObject player;
 
 	public int[,,] map;		//Map array, holds all info for map generation and save/load
+
 	private int mapRow = 50;	//
 	private int mapCol = 300;	//
 	private int mapBroke = 2;
@@ -57,7 +58,7 @@ public class MapGenerate : MonoBehaviour {
 					if(temp == 0){
 						map [i, j, 0] = (int)inst.VOID;
 					}else if (temp == 1){
-						//map [i, j, 0] = (int)inst.WALL;
+						map [i, j, 0] = (int)inst.WALL;
 						//changes nothing
 					}else if (temp == 2){
 						map [i, j, 0] = (int)inst.GEMS;
@@ -81,19 +82,24 @@ public class MapGenerate : MonoBehaviour {
 				if(map[i,j,0] == (int)inst.VOID){
 				}
 				else if(map[i,j,0] == (int)inst.WALL){
-					Instantiate (Wall, new Vector2 (-i, -j), Quaternion.identity);
+					With (Instantiate (Wall, new Vector2 (-i, -j), Quaternion.identity),i,j);		
 				}
 				else if(map[i,j,0] == (int)inst.GEMS){
-					Instantiate (Gems, new Vector2 (-i, -j), Quaternion.identity);
+					With(Instantiate (Gems, new Vector2 (-i, -j), Quaternion.identity),i,j);
 				}
 				else if(map[i,j,0] == (int)inst.ROPE){
-					Instantiate (Rope, new Vector2 (-i, -j), Quaternion.identity);
+					With(Instantiate (Rope, new Vector2 (-i, -j), Quaternion.identity),i,j);
 				}
 				else if(map[i,j,0] == (int)inst.POST){
-					Instantiate (Post, new Vector2 (-i, -j), Quaternion.identity);
+					With(Instantiate (Post, new Vector2 (-i, -j), Quaternion.identity),i,j);
 				}
 			}
 		}
+	}
+
+	public void With(GameObject inst, int x, int y){
+		map[x,y,1] = inst.GetInstanceID();
+		Debug.Log (map [x, y, 1]);
 	}
 				   
 	public bool callChance(int high, int hit){
