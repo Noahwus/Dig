@@ -14,10 +14,11 @@ MonoBehaviour:
   itemNumber: 0
   title: New Item
   itemType: null
+  quantity: 1
   icon: {fileID: 21300000, guid: e690d14322ea7f3478631cbe38990ca1, type: 3}
   flavorText: boo I'm new
   cost: 110
-  isInInventory: 1
+  isInInventory: 0
   isBought: 0
   isWearing: 0
   wearable: 0

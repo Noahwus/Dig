@@ -75,15 +75,6 @@ public class PopulateInventoryListFromItemsMaster : MonoBehaviour {
 			Debug.Log (inventory.Count);
 		}
 
-
-		//foreach (InvItem item  in master) {
-			
-			//if (item.isInInventory) {
-				//var myitem = new InvItem ();
-				//inventory.Add (item);
-			//}
-		//}
-
 	}
 
 	void inventoryInstances(){
@@ -91,11 +82,11 @@ public class PopulateInventoryListFromItemsMaster : MonoBehaviour {
 		//inventory.ForEach (Instantiate (itemInInventory, inventoryContentArea.transform));
 		// for each thing in the inventory, check if there is an instance of it already, if not, create one. 
 		//if there is an instance and there should not be an instance, destroy it.
-		for (int w = 0; w < inventory.Count; w ++) {
-			
+		for (int w = 0; w < inventory.Count; w++) {
+			//PROBLEM HERE: w will always go 0, 1, 2, etc therefore no matter what is in inventory, if there is 3 items it will grab the top three itemNumbers
 
 			InvItem myitem = inventory[w];
-			//Instantiate()
+					//Instantiate()
 			if (GameObject.Find(myitem.name) != null){
 				Debug.Log (myitem.title + " does have an instance");
 			}
