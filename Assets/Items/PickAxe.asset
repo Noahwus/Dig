@@ -17,7 +17,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: aea187bfb7f959d45b984ffb76ea8da2, type: 3}
   flavorText: Dig Dig Dig Dig Dig Dig Dig Dig
   cost: 25
-  isInInventory: 1
+  isInInventory: 0
   isBought: 1
   isWearing: 0
   wearable: 1

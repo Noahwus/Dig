@@ -11,9 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6361911c54383464fbf700e0a7fe6619, type: 3}
   m_Name: Crystals
   m_EditorClassIdentifier: 
-  itemNumber: 3
+  itemNumber: 0
   title: Crystal
   itemType: CrystalResource
+  quantity: 1
   icon: {fileID: 21300000, guid: 544de3f966f2bdb47b2c11a0d45f922d, type: 3}
   flavorText: 'Powerful and pretty, a dangerous combo. Use to power scrolls or hoard
     to sell. '

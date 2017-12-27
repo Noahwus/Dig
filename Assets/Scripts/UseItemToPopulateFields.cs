@@ -12,22 +12,22 @@ public class UseItemToPopulateFields : MonoBehaviour {
 	public Text cost;
 	public Image icon;
 	public Image popupIcon;
-	//private ItemsArray itemArray;
+	private ItemMaster itemMaster;
 
 	void Start(){
-		//itemArray = FindObjectOfType<ItemsArray> ();
+		itemMaster = FindObjectOfType<ItemMaster> ();
 
-		//PopulateInfo();
+		PopulateInfo();
 	}
 
 
 	public void PopulateInfo()
 	{
 		print (itemNumber);
-		//title.text =  itemArray.itemsArray [itemNumber].title;
-		//flavorText.text = itemArray.itemsArray [itemNumber].flavorText;
-		//icon.sprite = itemArray.itemsArray [itemNumber].icon;
-		//popupIcon.sprite = itemArray.itemsArray [itemNumber].icon;
+		title.text = itemMaster.itemMasterList [itemNumber].title;
+		flavorText.text = itemMaster.itemMasterList [itemNumber].flavorText;
+		icon.sprite = itemMaster.itemMasterList [itemNumber].icon;
+		popupIcon.sprite = itemMaster.itemMasterList [itemNumber].icon;
 
 
 
