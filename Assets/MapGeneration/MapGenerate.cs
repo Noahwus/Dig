@@ -17,6 +17,7 @@ public class MapGenerate : MonoBehaviour {
 	private int mapRow = 50;	//
 	private int mapCol = 300;	//
 	private int mapBroke = 2;
+	//private int mapCull; 		//How many times to repeat iterative work
 
 
 	// Use this for initialization
@@ -31,6 +32,7 @@ public class MapGenerate : MonoBehaviour {
 		map = new int[mapRow,mapCol,mapBroke];
 
 		//variable used to corrode the map, make caverns. iteration is based on map size
+		//mapCull = (mapRow * mapCol) / 2;
 		
 		//Wall = Resources.Load ("Wall") as GameObject; //This didn't work but i'd like to figure it out
 		//would help with not having to manually add game object references
