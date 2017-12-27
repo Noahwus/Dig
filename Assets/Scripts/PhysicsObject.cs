@@ -41,6 +41,7 @@ public class PhysicsObject : MonoBehaviour {
 	}
 
 	void FixedUpdate () {
+		//
 		velocity += gravModifier * Physics2D.gravity * Time.deltaTime;
 		velocity.x = targetVelocity.x;
 
