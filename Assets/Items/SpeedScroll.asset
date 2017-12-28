@@ -9,15 +9,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6361911c54383464fbf700e0a7fe6619, type: 3}
-  m_Name: TownScroll
+  m_Name: SpeedScroll
   m_EditorClassIdentifier: 
-  itemNumber: 1
-  title: Town Scroll
-  itemType: Scroll
+  itemNumber: 10
+  title: 'Speed Scroll '
+  itemType: scroll
   quantity: 1
-  icon: {fileID: 21300000, guid: c16b8cdfa630f544eba535e792f49a46, type: 3}
-  flavorText: Use this to return to town quickly and safely but at a cost of 10 crystals
-  cost: 0
+  icon: {fileID: 21300000, guid: e690d14322ea7f3478631cbe38990ca1, type: 3}
+  flavorText: Run faster, dig faster, be faster, for 30 seconds. costs 3 crystals
+    to use.
+  cost: 80
   isInInventory: 1
   isBought: 0
   isWearing: 0

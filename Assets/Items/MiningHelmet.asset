@@ -9,15 +9,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6361911c54383464fbf700e0a7fe6619, type: 3}
-  m_Name: TownScroll
+  m_Name: MiningHelmet
   m_EditorClassIdentifier: 
-  itemNumber: 1
-  title: Town Scroll
-  itemType: Scroll
+  itemNumber: 4
+  title: Mining Helmet
+  itemType: headgear
   quantity: 1
-  icon: {fileID: 21300000, guid: c16b8cdfa630f544eba535e792f49a46, type: 3}
-  flavorText: Use this to return to town quickly and safely but at a cost of 10 crystals
-  cost: 0
+  icon: {fileID: 21300000, guid: e690d14322ea7f3478631cbe38990ca1, type: 3}
+  flavorText: Trusty helmet used for years by the miners who came before you. Adds
+    time a miner can spend in The Fog before passing out, and 10% chance of precious
+    metals or crystals
+  cost: 400
   isInInventory: 1
   isBought: 0
   isWearing: 0

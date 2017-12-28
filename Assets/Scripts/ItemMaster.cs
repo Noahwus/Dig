@@ -18,10 +18,5 @@ public class ItemMaster: MonoBehaviour {
 
 	}
 
-	public bool IsInventoryFull(){
-		if (itemMasterList.Count > 18) {
-			return true;
-		}
-		return false;
-	}
+
 }

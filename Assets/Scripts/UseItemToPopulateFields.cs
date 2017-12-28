@@ -12,6 +12,8 @@ public class UseItemToPopulateFields : MonoBehaviour {
 	public Text cost;
 	public Image icon;
 	public Image popupIcon;
+	public Image gearIcon;
+	
 	private ItemMaster itemMaster;
 
 	void Start(){
@@ -31,5 +33,12 @@ public class UseItemToPopulateFields : MonoBehaviour {
 
 
 
+
+	}
+
+	public void PopulateGear(){
+		if(string.Equals(itemMaster.itemMasterList [itemNumber].itemType, "headgear")){
+		gearIcon.sprite = itemMaster.itemMasterList [itemNumber].icon;
+		}
 	}
 }
