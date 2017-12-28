@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6361911c54383464fbf700e0a7fe6619, type: 3}
   m_Name: Crystals
   m_EditorClassIdentifier: 
-  itemNumber: 0
+  itemNumber: 2
   title: Crystal
   itemType: CrystalResource
   quantity: 1

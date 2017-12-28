@@ -14,7 +14,7 @@ public class ItemMaster: MonoBehaviour {
 
 	void Awake(){
 		DontDestroyOnLoad (transform.gameObject);
-		Debug.Log (itemMasterList.Count);
+//		Debug.Log (itemMasterList.Count);
 
 	}
 

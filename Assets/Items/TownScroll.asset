@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6361911c54383464fbf700e0a7fe6619, type: 3}
   m_Name: TownScroll
   m_EditorClassIdentifier: 
-  itemNumber: 0
+  itemNumber: 1
   title: Town Scroll
   itemType: Scroll
   quantity: 1

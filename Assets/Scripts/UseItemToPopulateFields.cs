@@ -23,7 +23,7 @@ public class UseItemToPopulateFields : MonoBehaviour {
 
 	public void PopulateInfo()
 	{
-		print (itemNumber);
+		//print (itemNumber);
 		title.text = itemMaster.itemMasterList [itemNumber].title;
 		flavorText.text = itemMaster.itemMasterList [itemNumber].flavorText;
 		icon.sprite = itemMaster.itemMasterList [itemNumber].icon;
