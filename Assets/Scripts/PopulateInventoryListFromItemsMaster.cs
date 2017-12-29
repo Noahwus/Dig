@@ -7,7 +7,7 @@ using UnityEngine;
 public class PopulateInventoryListFromItemsMaster : MonoBehaviour {
 
 	//current items go into this list
-	List<InvItem> inventory = new List<InvItem> ();
+	public List<InvItem> inventory = new List<InvItem> ();
 	//big book of all items here
 	private ItemMaster masterList;
 
@@ -106,8 +106,6 @@ public class PopulateInventoryListFromItemsMaster : MonoBehaviour {
 				popfield.itemNumber = myitem.itemNumber;
 				//double check that the numbers set correctly
 				//Debug.Log (popfield.itemNumber + " pop field number");
-
-
 			}
 
 	}
