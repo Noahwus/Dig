@@ -10,6 +10,9 @@ public class Equip_Unequip : MonoBehaviour, IPointerClickHandler {
 	public int itemNumber;
 	private UseItemToPopulateFields currentItem;
 	private ItemMaster masterList;
+	private UseItemToPopulateFields EquippedItemPopField;
+
+	GameObject alreadyEquippedItem;
 
 	public UnityEvent leftClick;
 	public UnityEvent middleClick;
@@ -40,31 +43,236 @@ public class Equip_Unequip : MonoBehaviour, IPointerClickHandler {
 		itemNumber = currentItem.itemNumber;
 		Debug.Log (masterList.itemMasterList [itemNumber].itemNumber + "current item number");
 
+		//checking if headgear when equipping
+		if(string.Equals(masterList.itemMasterList [itemNumber].itemType, "headgear")){
+				//check if there is a headgear already equipped
+			alreadyEquippedItem = GameObject.FindGameObjectWithTag("headgear");
+			if(alreadyEquippedItem != null){
+				//then it exsists and we should make a local copy to turn it off and destroy
+				EquippedItemPopField = alreadyEquippedItem.GetComponent<UseItemToPopulateFields> ();
+				InvItem equippedItem = masterList.itemMasterList[EquippedItemPopField.itemNumber];
+				equippedItem.isWearing = false;
+				equippedItem.isInInventory = true;
+
+				//grabbing item to be equipped and setting local bools
+				bool wearable = masterList.itemMasterList[itemNumber].wearable;
+				bool iswearing = masterList.itemMasterList[itemNumber].isWearing;
+				//if wearable is true, set iswearing to true
+				if (wearable) {
+					if (iswearing) {
+						masterList.itemMasterList [itemNumber].isInInventory = true;
+						masterList.itemMasterList[itemNumber].isWearing = false;
+						Debug.Log (masterList.itemMasterList[itemNumber].title +" should not be equipped");
+
+					} else {
+						masterList.itemMasterList[itemNumber].isWearing = true;
+						masterList.itemMasterList [itemNumber].isInInventory = false;
+						Debug.Log (masterList.itemMasterList[itemNumber].title +" should be equipped");
+
+					} 
+
+				}
+			}
+			if (alreadyEquippedItem == null){
+				//no need to take out an equipped item if there isn't one
+				//grabbing item to be equipped and setting local bools
+				bool wearable = masterList.itemMasterList[itemNumber].wearable;
+				bool iswearing = masterList.itemMasterList[itemNumber].isWearing;
+				//if wearable is true, set iswearing to true
+				if (wearable) {
+					if (iswearing) {
+						masterList.itemMasterList [itemNumber].isInInventory = true;
+						masterList.itemMasterList[itemNumber].isWearing = false;
+						Debug.Log (masterList.itemMasterList[itemNumber].title +" should not be equipped");
+
+					} else {
+						masterList.itemMasterList[itemNumber].isWearing = true;
+						masterList.itemMasterList [itemNumber].isInInventory = false;
+						Debug.Log (masterList.itemMasterList[itemNumber].title +" should be equipped");
+
+					} 
+
+				}
+			}
 
 
-		//set local wearable bool
-		bool wearable = masterList.itemMasterList[itemNumber].wearable;
-		bool iswearing = masterList.itemMasterList[itemNumber].isWearing;
-		//if wearable is true, set iswearing to true
-		if (wearable) {
-			if (iswearing) {
-				masterList.itemMasterList [itemNumber].isInInventory = true;
-				masterList.itemMasterList[itemNumber].isWearing = false;
-				Debug.Log (masterList.itemMasterList[itemNumber].title +" should not be equipped");
 
-			} else {
-				masterList.itemMasterList[itemNumber].isWearing = true;
-				masterList.itemMasterList [itemNumber].isInInventory = false;
-				Debug.Log (masterList.itemMasterList[itemNumber].title +" should be equipped");
+			}
+		//checking if footgear when equipping
+		if(string.Equals(masterList.itemMasterList [itemNumber].itemType, "footgear")){
+			//check if there is a footgear already equipped
+			alreadyEquippedItem = GameObject.FindGameObjectWithTag("footgear");
+			if(alreadyEquippedItem != null){
+				//then it exsists and we should make a local copy to turn it off and destroy
+				EquippedItemPopField = alreadyEquippedItem.GetComponent<UseItemToPopulateFields> ();
+				InvItem equippedItem = masterList.itemMasterList[EquippedItemPopField.itemNumber];
+				equippedItem.isWearing = false;
+				equippedItem.isInInventory = true;
 
-			} 
+				//grabbing item to be equipped and setting local bools
+				bool wearable = masterList.itemMasterList[itemNumber].wearable;
+				bool iswearing = masterList.itemMasterList[itemNumber].isWearing;
+				//if wearable is true, set iswearing to true
+				if (wearable) {
+					if (iswearing) {
+						masterList.itemMasterList [itemNumber].isInInventory = true;
+						masterList.itemMasterList[itemNumber].isWearing = false;
+						Debug.Log (masterList.itemMasterList[itemNumber].title +" should not be equipped");
+
+					} else {
+						masterList.itemMasterList[itemNumber].isWearing = true;
+						masterList.itemMasterList [itemNumber].isInInventory = false;
+						Debug.Log (masterList.itemMasterList[itemNumber].title +" should be equipped");
+
+					} 
+
+				}
+			}
+			if (alreadyEquippedItem == null){
+				//no need to take out an equipped item if there isn't one
+				//grabbing item to be equipped and setting local bools
+				bool wearable = masterList.itemMasterList[itemNumber].wearable;
+				bool iswearing = masterList.itemMasterList[itemNumber].isWearing;
+				//if wearable is true, set iswearing to true
+				if (wearable) {
+					if (iswearing) {
+						masterList.itemMasterList [itemNumber].isInInventory = true;
+						masterList.itemMasterList[itemNumber].isWearing = false;
+						Debug.Log (masterList.itemMasterList[itemNumber].title +" should not be equipped");
+
+					} else {
+						masterList.itemMasterList[itemNumber].isWearing = true;
+						masterList.itemMasterList [itemNumber].isInInventory = false;
+						Debug.Log (masterList.itemMasterList[itemNumber].title +" should be equipped");
+
+					} 
+
+				}
+			}
+
+
 
 		}
+
+		//chekcing if pickaxe when equipping
+		if(string.Equals(masterList.itemMasterList [itemNumber].itemType, "pickaxe")){
+			//check if there is a headgear already equipped
+			alreadyEquippedItem = GameObject.FindGameObjectWithTag("pickaxe");
+			if(alreadyEquippedItem != null){
+				//then it exsists and we should make a local copy to turn it off and destroy
+				EquippedItemPopField = alreadyEquippedItem.GetComponent<UseItemToPopulateFields> ();
+				InvItem equippedItem = masterList.itemMasterList[EquippedItemPopField.itemNumber];
+				equippedItem.isWearing = false;
+				equippedItem.isInInventory = true;
+
+				//grabbing item to be equipped and setting local bools
+				bool wearable = masterList.itemMasterList[itemNumber].wearable;
+				bool iswearing = masterList.itemMasterList[itemNumber].isWearing;
+				//if wearable is true, set iswearing to true
+				if (wearable) {
+					if (iswearing) {
+						masterList.itemMasterList [itemNumber].isInInventory = true;
+						masterList.itemMasterList[itemNumber].isWearing = false;
+						Debug.Log (masterList.itemMasterList[itemNumber].title +" should not be equipped");
+
+					} else {
+						masterList.itemMasterList[itemNumber].isWearing = true;
+						masterList.itemMasterList [itemNumber].isInInventory = false;
+						Debug.Log (masterList.itemMasterList[itemNumber].title +" should be equipped");
+
+					} 
+
+				}
+			}
+			if (alreadyEquippedItem == null){
+				//no need to take out an equipped item if there isn't one
+				//grabbing item to be equipped and setting local bools
+				bool wearable = masterList.itemMasterList[itemNumber].wearable;
+				bool iswearing = masterList.itemMasterList[itemNumber].isWearing;
+				//if wearable is true, set iswearing to true
+				if (wearable) {
+					if (iswearing) {
+						masterList.itemMasterList [itemNumber].isInInventory = true;
+						masterList.itemMasterList[itemNumber].isWearing = false;
+						Debug.Log (masterList.itemMasterList[itemNumber].title +" should not be equipped");
+
+					} else {
+						masterList.itemMasterList[itemNumber].isWearing = true;
+						masterList.itemMasterList [itemNumber].isInInventory = false;
+						Debug.Log (masterList.itemMasterList[itemNumber].title +" should be equipped");
+
+					} 
+
+				}
+			}
+
+
+
+		}
+
+		//checking if scroll when equipping
+		if(string.Equals(masterList.itemMasterList [itemNumber].itemType, "scroll")){
+			//check if there is a headgear already equipped
+			alreadyEquippedItem = GameObject.FindGameObjectWithTag("scroll");
+			if(alreadyEquippedItem != null){
+				//then it exsists and we should make a local copy to turn it off and destroy
+				EquippedItemPopField = alreadyEquippedItem.GetComponent<UseItemToPopulateFields> ();
+				InvItem equippedItem = masterList.itemMasterList[EquippedItemPopField.itemNumber];
+				equippedItem.isWearing = false;
+				equippedItem.isInInventory = true;
+
+				//grabbing item to be equipped and setting local bools
+				bool wearable = masterList.itemMasterList[itemNumber].wearable;
+				bool iswearing = masterList.itemMasterList[itemNumber].isWearing;
+				//if wearable is true, set iswearing to true
+				if (wearable) {
+					if (iswearing) {
+						masterList.itemMasterList [itemNumber].isInInventory = true;
+						masterList.itemMasterList[itemNumber].isWearing = false;
+						Debug.Log (masterList.itemMasterList[itemNumber].title +" should not be equipped");
+
+					} else {
+						masterList.itemMasterList[itemNumber].isWearing = true;
+						masterList.itemMasterList [itemNumber].isInInventory = false;
+						Debug.Log (masterList.itemMasterList[itemNumber].title +" should be equipped");
+
+					} 
+
+				}
+			}
+			if (alreadyEquippedItem == null){
+				//no need to take out an equipped item if there isn't one
+				//grabbing item to be equipped and setting local bools
+				bool wearable = masterList.itemMasterList[itemNumber].wearable;
+				bool iswearing = masterList.itemMasterList[itemNumber].isWearing;
+				//if wearable is true, set iswearing to true
+				if (wearable) {
+					if (iswearing) {
+						masterList.itemMasterList [itemNumber].isInInventory = true;
+						masterList.itemMasterList[itemNumber].isWearing = false;
+						Debug.Log (masterList.itemMasterList[itemNumber].title +" should not be equipped");
+
+					} else {
+						masterList.itemMasterList[itemNumber].isWearing = true;
+						masterList.itemMasterList [itemNumber].isInInventory = false;
+						Debug.Log (masterList.itemMasterList[itemNumber].title +" should be equipped");
+
+					} 
+
+				}
+			}
+
+
+
+		}
+
+
+	
 	}
 
 	public void unequipClick(){
 		itemNumber = currentItem.itemNumber;
-		itemNumber = itemNumber - 1;
+		//itemNumber = itemNumber - 1;
 
 		//check that it is equipped, and then unequip it and put it back into the inventory unless the inventory is full
 		bool isWearing = masterList.itemMasterList[itemNumber].isWearing;

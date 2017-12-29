@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - MasterList
+  - headgear
+  - footgear
+  - scroll
+  - pickaxe
   layers:
   - Default
   - TransparentFX

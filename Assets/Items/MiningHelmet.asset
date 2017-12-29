@@ -20,7 +20,7 @@ MonoBehaviour:
     time a miner can spend in The Fog before passing out, and 10% chance of precious
     metals or crystals
   cost: 400
-  isInInventory: 1
+  isInInventory: 0
   isBought: 0
-  isWearing: 0
+  isWearing: 1
   wearable: 1

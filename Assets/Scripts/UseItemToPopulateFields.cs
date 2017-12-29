@@ -20,6 +20,7 @@ public class UseItemToPopulateFields : MonoBehaviour {
 		itemMaster = FindObjectOfType<ItemMaster> ();
 
 		PopulateInfo();
+		PopulateGear ();
 	}
 
 
@@ -38,7 +39,32 @@ public class UseItemToPopulateFields : MonoBehaviour {
 
 	public void PopulateGear(){
 		if(string.Equals(itemMaster.itemMasterList [itemNumber].itemType, "headgear")){
-		gearIcon.sprite = itemMaster.itemMasterList [itemNumber].icon;
+			if(itemMaster.itemMasterList[itemNumber].isWearing){
+				gearIcon.sprite = itemMaster.itemMasterList [itemNumber].icon;
+				Debug.Log ( itemMaster.itemMasterList [itemNumber].title + " should show in gear");
+			}
+
+		}
+		if(string.Equals(itemMaster.itemMasterList [itemNumber].itemType, "footgear")){
+			if(itemMaster.itemMasterList[itemNumber].isWearing){
+				gearIcon.sprite = itemMaster.itemMasterList [itemNumber].icon;
+				Debug.Log ( itemMaster.itemMasterList [itemNumber].title + " should show in gear");
+			}
+
+		}
+		if(string.Equals(itemMaster.itemMasterList [itemNumber].itemType, "scroll")){
+			if(itemMaster.itemMasterList[itemNumber].isWearing){
+				gearIcon.sprite = itemMaster.itemMasterList [itemNumber].icon;
+				Debug.Log ( itemMaster.itemMasterList [itemNumber].title + " should show in gear");
+			}
+
+		}
+		if(string.Equals(itemMaster.itemMasterList [itemNumber].itemType, "pickaxe")){
+			if(itemMaster.itemMasterList[itemNumber].isWearing){
+				gearIcon.sprite = itemMaster.itemMasterList [itemNumber].icon;
+				Debug.Log ( itemMaster.itemMasterList [itemNumber].title + " should show in gear");
+			}
+
 		}
 	}
 }
