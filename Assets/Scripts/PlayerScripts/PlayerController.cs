@@ -26,8 +26,11 @@ public class PlayerController : MonoBehaviour {
 	//what layer is considered the ground
 	public LayerMask whatIsGround;
 
+
+
 	void Start(){
 		anim = GetComponent<Animator> ();
+
 	}
 
 	void FixedUpdate(){
@@ -48,6 +51,8 @@ public class PlayerController : MonoBehaviour {
 
 		anim.SetFloat ("Speed", Mathf.Abs(move));
 
+	
+
 		//if we're facing the negative direction and not facing the right, flip
 		if (move > 0 && !facingRight) {
 			Flip ();
@@ -65,6 +70,8 @@ public class PlayerController : MonoBehaviour {
 
 			//add jump force on the y in an impulse fashion
 			GetComponent<Rigidbody2D> ().AddForce (new Vector2(0, jumpForce), ForceMode2D.Impulse);
+
+		
 		}
 	}
 
@@ -80,5 +87,7 @@ public class PlayerController : MonoBehaviour {
 
 		//apply that to the localscale
 		transform.localScale = theScale;
+
+
 	}
 }

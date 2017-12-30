@@ -3380,6 +3380,7 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
+  particles: {fileID: 0}
 --- !u!95 &1141682073
 Animator:
   serializedVersion: 3
@@ -4460,7 +4461,7 @@ MonoBehaviour:
   minDistance: 1
   followDistance: 3
   target: {fileID: 1902790355}
-  offset: {x: 3, y: 4, z: 0}
+  offset: {x: 0, y: 0, z: 0}
 --- !u!1 &1440307849
 GameObject:
   m_ObjectHideFlags: 0
