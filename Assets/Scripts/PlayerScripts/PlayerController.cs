@@ -51,7 +51,14 @@ public class PlayerController : MonoBehaviour {
 
 		anim.SetFloat ("Speed", Mathf.Abs(move));
 
-	
+		//set the holding shift bool
+		if (grounded && Input.GetKey (KeyCode.LeftShift)) {
+			anim.SetBool ("holdingShift", true);
+			topSpeed = 8;
+		} else {
+			anim.SetBool ("holdingShift", false);
+			topSpeed = 5;
+		}
 
 		//if we're facing the negative direction and not facing the right, flip
 		if (move > 0 && !facingRight) {
