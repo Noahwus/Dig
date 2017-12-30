@@ -20,6 +20,6 @@ MonoBehaviour:
     to sell. '
   cost: 100
   isInInventory: 1
-  isBought: 1
+  isBought: 0
   isWearing: 0
   wearable: 0
