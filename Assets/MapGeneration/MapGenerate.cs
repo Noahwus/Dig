@@ -17,6 +17,7 @@ public class MapGenerate : MonoBehaviour {
 	private int mapRow = 50;	//
 	private int mapCol = 300;	//
 	private int mapBroke = 2;
+	private int mapDepth = 102;
 	//private int mapCull; 		//How many times to repeat iterative work
 
 
@@ -29,7 +30,7 @@ public class MapGenerate : MonoBehaviour {
 
 	void iniResources(){		// initialize the array, determine cull iterations
 		//itialize 2d Array
-		map = new int[mapRow,mapCol,mapBroke];
+		map = new int[mapRow,mapCol,mapDepth];
 
 		//variable used to corrode the map, make caverns. iteration is based on map size
 		//mapCull = (mapRow * mapCol) / 2;
@@ -82,16 +83,16 @@ public class MapGenerate : MonoBehaviour {
 				if(map[i,j,0] == (int)inst.VOID){
 				}
 				else if(map[i,j,0] == (int)inst.WALL){
-					With (Instantiate (Wall, new Vector2 ((mapRow/2)-i, -j), Quaternion.identity),i,j);		
+					With (Instantiate (Wall, new Vector3 ((mapRow/2)-i, -j, mapDepth), Quaternion.identity),i,j);		
 				}
 				else if(map[i,j,0] == (int)inst.GEMS){
-					With(Instantiate (Gems, new Vector2 ((mapRow/2)-i, -j), Quaternion.identity),i,j);
+					With(Instantiate (Gems, new Vector3 ((mapRow/2)-i, -j, mapDepth), Quaternion.identity),i,j);
 				}
 				else if(map[i,j,0] == (int)inst.ROPE){
-					With(Instantiate (Rope, new Vector2 ((mapRow/2)-i, -j), Quaternion.identity),i,j);
+					With(Instantiate (Rope, new Vector3 ((mapRow/2)-i, -j, mapDepth), Quaternion.identity),i,j);
 				}
 				else if(map[i,j,0] == (int)inst.POST){
-					With(Instantiate (Post, new Vector2 ((mapRow/2)-i, -j), Quaternion.identity),i,j);
+					With(Instantiate (Post, new Vector3 ((mapRow/2)-i, -j, mapDepth), Quaternion.identity),i,j);
 				}
 			}
 		}
