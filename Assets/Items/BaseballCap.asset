@@ -15,11 +15,11 @@ MonoBehaviour:
   title: Baseball Cap
   itemType: headgear
   quantity: 1
-  icon: {fileID: 21300000, guid: 6abe21d011bcd2548be2c699015ba647, type: 3}
+  icon: {fileID: 21300000, guid: 0abfb3f6ef8bd3b4094e0ca56fd34ef6, type: 3}
   flavorText: 'Dirty old cap that looks well loved. Added 10% chance of precious metal
     drops when digging. '
   cost: 50
-  isInInventory: 0
+  isInInventory: 1
   isBought: 0
   isWearing: 0
   wearable: 1
