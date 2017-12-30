@@ -19,7 +19,7 @@ MonoBehaviour:
   flavorText: 'A hard hat that appears to have only marginally protected the previous
     owner. 15% added chance of precious metal drops when digging. '
   cost: 100
-  isInInventory: 1
+  isInInventory: 0
   isBought: 0
-  isWearing: 0
+  isWearing: 1
   wearable: 1

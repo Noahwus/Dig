@@ -9,6 +9,7 @@ TagManager:
   - footgear
   - scroll
   - pickaxe
+  - ground
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Ground
   - 
   - 
   - 
