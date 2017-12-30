@@ -15,7 +15,7 @@ public class MapGenerate : MonoBehaviour {
 	public int[,,] map;		//Map array, holds all info for map generation and save/load
 
 	private int mapRow = 50;	//
-	private int mapCol = 300;	//
+	private int mapCol = 75;	//
 	private int mapBroke = 2;
 	private int mapDepth = 103;
 
