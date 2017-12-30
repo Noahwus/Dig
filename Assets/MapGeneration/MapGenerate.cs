@@ -53,7 +53,7 @@ public class MapGenerate : MonoBehaviour {
 		for (int i = 0; i < mapRow; i++) {
 			for (int j = 0; j < mapCol; j++) {
 				if(callChance(chance,((chance)*9/11))){
-					int temp = Random.Range(0,5);
+					int temp = Random.Range(0,6);
 					Debug.Log (temp);
 					if(temp == 0){
 						map [i, j, 0] = (int)inst.VOID;
@@ -67,7 +67,7 @@ public class MapGenerate : MonoBehaviour {
 					}else if (temp == 4){
 						map [i, j, 0] = (int)inst.POST;
 					}else{
-					
+						map [i, j, 0] = (int)inst.WALL;
 					}
 				}
 			}
@@ -82,16 +82,16 @@ public class MapGenerate : MonoBehaviour {
 				if(map[i,j,0] == (int)inst.VOID){
 				}
 				else if(map[i,j,0] == (int)inst.WALL){
-					With (Instantiate (Wall, new Vector2 (-i, -j), Quaternion.identity),i,j);		
+					With (Instantiate (Wall, new Vector2 ((mapRow/2)-i, -j), Quaternion.identity),i,j);		
 				}
 				else if(map[i,j,0] == (int)inst.GEMS){
-					With(Instantiate (Gems, new Vector2 (-i, -j), Quaternion.identity),i,j);
+					With(Instantiate (Gems, new Vector2 ((mapRow/2)-i, -j), Quaternion.identity),i,j);
 				}
 				else if(map[i,j,0] == (int)inst.ROPE){
-					With(Instantiate (Rope, new Vector2 (-i, -j), Quaternion.identity),i,j);
+					With(Instantiate (Rope, new Vector2 ((mapRow/2)-i, -j), Quaternion.identity),i,j);
 				}
 				else if(map[i,j,0] == (int)inst.POST){
-					With(Instantiate (Post, new Vector2 (-i, -j), Quaternion.identity),i,j);
+					With(Instantiate (Post, new Vector2 ((mapRow/2)-i, -j), Quaternion.identity),i,j);
 				}
 			}
 		}
