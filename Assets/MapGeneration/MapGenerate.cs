@@ -82,16 +82,16 @@ public class MapGenerate : MonoBehaviour {
 				if(map[i,j,0] == (int)inst.VOID){
 				}
 				else if(map[i,j,0] == (int)inst.WALL){
-					With (Instantiate (Wall, new Vector2 (-i, -j), Quaternion.identity),i,j);		
+					With (Instantiate (Wall, new Vector2 ((mapRow/2)-i, -j), Quaternion.identity),i,j);		
 				}
 				else if(map[i,j,0] == (int)inst.GEMS){
-					With(Instantiate (Gems, new Vector2 (-i, -j), Quaternion.identity),i,j);
+					With(Instantiate (Gems, new Vector2 ((mapRow/2)-i, -j), Quaternion.identity),i,j);
 				}
 				else if(map[i,j,0] == (int)inst.ROPE){
-					With(Instantiate (Rope, new Vector2 (-i, -j), Quaternion.identity),i,j);
+					With(Instantiate (Rope, new Vector2 ((mapRow/2)-i, -j), Quaternion.identity),i,j);
 				}
 				else if(map[i,j,0] == (int)inst.POST){
-					With(Instantiate (Post, new Vector2 (-i, -j), Quaternion.identity),i,j);
+					With(Instantiate (Post, new Vector2 ((mapRow/2)-i, -j), Quaternion.identity),i,j);
 				}
 			}
 		}
