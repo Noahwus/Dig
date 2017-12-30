@@ -98,6 +98,7 @@ public class MapGenerate : MonoBehaviour {
 	public void With(GameObject inst, int x, int y){
 		map[x,y,mapDepth] = inst.GetInstanceID();
 		//Debug.Log (map [x, y, mapDepth]);
+		inst.name = inst.GetInstanceID().ToString();
 	}
 				   
 	public bool callChance(int high, int hit){
