@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour {
 	//what layer is considered the ground
 	public LayerMask whatIsGround;
 
-
+	public bool isLeftClicking;
 
 	void Start(){
 		anim = GetComponent<Animator> ();
@@ -62,7 +62,13 @@ public class PlayerController : MonoBehaviour {
 			topSpeed = 5;
 		}
 
-
+		if (Input.GetMouseButton (0)) {
+			isLeftClicking = true;
+			anim.SetBool ("leftClick", true);
+		} else {
+			isLeftClicking = false;
+			anim.SetBool ("leftClick", false);
+		}
 
 		//if we're facing the negative direction and not facing the right, flip
 		if (move > 0 && !facingRight) {

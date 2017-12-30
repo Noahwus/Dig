@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 public class Equip_Unequip : MonoBehaviour, IPointerClickHandler {
 
-	private PopulateInventoryListFromItemsMaster currentInventory;
+//	private PopulateInventoryListFromItemsMaster currentInventory;
 	public int itemNumber;
 	private UseItemToPopulateFields currentItem;
 	private ItemMaster masterList;
@@ -20,7 +20,7 @@ public class Equip_Unequip : MonoBehaviour, IPointerClickHandler {
 
 
 	void Awake(){
-		currentInventory = FindObjectOfType<PopulateInventoryListFromItemsMaster> ();
+		//currentInventory = FindObjectOfType<PopulateInventoryListFromItemsMaster> ();
 		currentItem = FindObjectOfType<UseItemToPopulateFields> ();
 		masterList = FindObjectOfType<ItemMaster> ();
 
