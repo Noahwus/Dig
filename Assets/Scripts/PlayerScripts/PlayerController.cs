@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.Events;
 
 public class PlayerController : MonoBehaviour {
 
@@ -60,6 +62,8 @@ public class PlayerController : MonoBehaviour {
 			topSpeed = 5;
 		}
 
+
+
 		//if we're facing the negative direction and not facing the right, flip
 		if (move > 0 && !facingRight) {
 			Flip ();
@@ -97,4 +101,6 @@ public class PlayerController : MonoBehaviour {
 
 
 	}
+
+
 }
