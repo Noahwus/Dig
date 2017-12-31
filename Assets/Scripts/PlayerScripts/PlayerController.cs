@@ -28,6 +28,8 @@ public class PlayerController : MonoBehaviour {
 	//what layer is considered the ground
 	public LayerMask whatIsGround;
 
+	GameObject tempGameObject;
+
 	public bool isLeftClicking;
 
 	void Start(){
@@ -63,10 +65,21 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		if (Input.GetMouseButton (0)) {
-			isLeftClicking = true;
+			//isLeftClicking = true;
 			anim.SetBool ("leftClick", true);
+			Debug.Log ("and we're clicking...");
+
+			RaycastHit2D hit = Physics2D.Raycast (Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);	
+
+			if (hit.collider != null){
+				Debug.Log (hit.collider.transform.gameObject.name);
+				if (hit.collider.transform.gameObject.tag == "ground"){
+				tempGameObject = hit.collider.transform.gameObject;
+				Destroy (tempGameObject, 1.5f);
+				}
+				}
 		} else {
-			isLeftClicking = false;
+			//isLeftClicking = false;
 			anim.SetBool ("leftClick", false);
 		}
 

@@ -13,6 +13,7 @@ public class UseItemToPopulateFields : MonoBehaviour {
 	public Image icon;
 	public Image popupIcon;
 	public Image gearIcon;
+	public Text quantity;
 	
 	private ItemMaster itemMaster;
 
@@ -31,6 +32,7 @@ public class UseItemToPopulateFields : MonoBehaviour {
 		flavorText.text = itemMaster.itemMasterList [itemNumber].flavorText;
 		icon.sprite = itemMaster.itemMasterList [itemNumber].icon;
 		popupIcon.sprite = itemMaster.itemMasterList [itemNumber].icon;
+		quantity.text = itemMaster.itemMasterList [itemNumber].quantity.ToString();
 
 
 
