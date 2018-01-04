@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: db376ddb48b7cf14bb33655b07197463
+timeCreated: 1515087695
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Lets_get_diggy_with_it
+  fontNames:
+  - Lets_get_diggy_with_it
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

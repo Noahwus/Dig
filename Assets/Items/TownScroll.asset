@@ -20,5 +20,5 @@ MonoBehaviour:
   cost: 0
   isInInventory: 0
   isBought: 0
-  isWearing: 1
+  isWearing: 0
   wearable: 1

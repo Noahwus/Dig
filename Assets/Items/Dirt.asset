@@ -18,7 +18,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 875e72c4a5cc89146b09160cd784ad41, type: 3}
   flavorText: Well, dirt is dirt...
   cost: 1
-  isInInventory: 1
+  isInInventory: 0
   isBought: 0
   isWearing: 0
   wearable: 0

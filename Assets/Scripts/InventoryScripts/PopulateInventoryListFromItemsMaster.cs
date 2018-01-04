@@ -22,6 +22,8 @@ public class PopulateInventoryListFromItemsMaster : MonoBehaviour {
 	//parent for instances
 	public GameObject inventoryContentArea;
 
+
+
 	// Use this for initialization
 	void Start () {
 		
@@ -147,4 +149,6 @@ public class PopulateInventoryListFromItemsMaster : MonoBehaviour {
 
 
 	}
+
+
 }

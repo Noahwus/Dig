@@ -30,11 +30,22 @@ public class PlayerController : MonoBehaviour {
 
 	GameObject tempGameObject;
 
+	//big book of all items here
+	private ItemMaster masterList;
+
+	private DroppableDefinitions tempObjectDef;
+
 	public bool isLeftClicking;
+
+	public GameObject baseballCap;
+	public GameObject Dirt;
+
+	//counting the inventory on pickup
+	int InventoryCount;
 
 	void Start(){
 		anim = GetComponent<Animator> ();
-
+		masterList = FindObjectOfType<ItemMaster> ();
 	}
 
 	void FixedUpdate(){
@@ -64,24 +75,37 @@ public class PlayerController : MonoBehaviour {
 			topSpeed = 5;
 		}
 
+		//spawning test items
+		if (Input.GetMouseButton(1)){
+			Debug.Log ("spawning new item");
+			Instantiate (baseballCap, Camera.main.ScreenToWorldPoint (Input.mousePosition + new Vector3 (0, 0,120)), Quaternion.identity);
+			Instantiate (Dirt, Camera.main.ScreenToWorldPoint (Input.mousePosition + new Vector3 (0, 0,120)), Quaternion.identity);
+		}
+
+
+		//checking if they're clicking 
 		if (Input.GetMouseButton (0)) {
 			//isLeftClicking = true;
 			anim.SetBool ("leftClick", true);
 			Debug.Log ("and we're clicking...");
 
+			//casting a ray to find the gameObject they are clicking on
 			RaycastHit2D hit = Physics2D.Raycast (Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);	
 
 			if (hit.collider != null){
 				Debug.Log (hit.collider.transform.gameObject.name);
+
 				if (hit.collider.transform.gameObject.tag == "ground"){
-				tempGameObject = hit.collider.transform.gameObject;
-				Destroy (tempGameObject, 1.5f);
+					tempGameObject = hit.collider.transform.gameObject;
+					Instantiate (Dirt, tempGameObject.transform.position, Quaternion.identity);
+					Destroy (tempGameObject, 1.5f);			
 				}
 				}
-		} else {
-			//isLeftClicking = false;
-			anim.SetBool ("leftClick", false);
+			} else {
+				//isLeftClicking = false;
+				anim.SetBool ("leftClick", false);
 		}
+
 
 		//if we're facing the negative direction and not facing the right, flip
 		if (move > 0 && !facingRight) {
@@ -91,6 +115,47 @@ public class PlayerController : MonoBehaviour {
 			Flip ();	
 		}
 			
+			
+	}
+
+	//colliding with droppables!
+	void OnCollisionEnter2D(Collision2D coll){
+		if(coll.gameObject.tag == "dropped"){
+			tempGameObject = coll.gameObject;
+			Debug.Log ("collided with "+ tempGameObject.name);
+			inventoryCheckIfFull ();
+
+			//if it is full, don't add it to the inventory
+			if (inventoryCheckIfFull()){
+				Debug.Log ("Inventory Full");
+				//check if there is already one of that type there, and if so add to the quantity instead
+				tempObjectDef = tempGameObject.GetComponent<DroppableDefinitions> ();
+				var itemNumber = tempObjectDef.itemNumber;
+				if(masterList.itemMasterList[itemNumber].isInInventory == true){
+					masterList.itemMasterList[itemNumber].quantity = (masterList.itemMasterList[itemNumber].quantity + 1);
+					Destroy (tempGameObject);
+				}
+			}
+
+			//if it is not full, add it to the inventory
+			if(!inventoryCheckIfFull()){
+				Debug.Log ("Inventory not full, adding " + tempGameObject.name.ToString());
+				tempObjectDef = tempGameObject.GetComponent<DroppableDefinitions> ();
+				var itemNumber = tempObjectDef.itemNumber;
+				if(masterList.itemMasterList[itemNumber].isInInventory == true){
+					Debug.Log ("added to quantity");
+					masterList.itemMasterList[itemNumber].quantity = (masterList.itemMasterList[itemNumber].quantity + 1);
+					Destroy (tempGameObject);
+				}
+				if(masterList.itemMasterList[itemNumber].isInInventory == false){
+					Debug.Log ("added to inventory");
+					masterList.itemMasterList[itemNumber].isInInventory = true;
+					Destroy (tempGameObject);
+				}
+
+			}
+		}
+	
 	}
 
 	void Update(){
@@ -119,6 +184,31 @@ public class PlayerController : MonoBehaviour {
 		transform.localScale = theScale;
 
 
+	}
+
+	public bool inventoryCheckIfFull(){
+		InventoryCount = 0;
+		//go through big book, check how many things are marked in the inventory, and then decide whether a item to be picked up should be
+		for (int x = 0; x < masterList.itemMasterList.Count ; x++) {
+
+			InvItem myitem = masterList.itemMasterList[x];
+
+			if (myitem.isInInventory){
+				InventoryCount = InventoryCount + 1;
+			}
+
+
+
+		}
+
+		if (InventoryCount >= 9) {
+			//inventory is full can't hold any more, don't pick it up
+			Debug.Log ("Inventory Full");
+			return true;
+
+		} else {
+			return false;
+		}
 	}
 
 

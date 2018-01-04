@@ -10,6 +10,7 @@ TagManager:
   - scroll
   - pickaxe
   - ground
+  - dropped
   layers:
   - Default
   - TransparentFX

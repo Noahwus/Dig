@@ -293,6 +293,7 @@ public class Equip_Unequip : MonoBehaviour, IPointerClickHandler {
 		if (isInInventory || isWearing){
 			masterList.itemMasterList [itemNumber].isInInventory = false;
 			masterList.itemMasterList [itemNumber].isWearing = false;
+			masterList.itemMasterList [itemNumber].quantity = 1;
 			Debug.Log (masterList.itemMasterList[itemNumber].title +" should be dropped");
 
 		}
