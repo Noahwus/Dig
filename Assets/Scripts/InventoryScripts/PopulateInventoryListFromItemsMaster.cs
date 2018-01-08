@@ -12,7 +12,7 @@ public class PopulateInventoryListFromItemsMaster : MonoBehaviour {
 	private ItemMaster masterList;
 
 	//totalamount inventorysize
-	public int inventorySize = 18;
+	public int inventorySize = 15;
 
 	//time to wait before updating the inventory list again
 	float updateInventoryTime = 0.01f;

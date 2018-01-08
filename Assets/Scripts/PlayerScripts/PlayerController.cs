@@ -84,9 +84,14 @@ public class PlayerController : MonoBehaviour {
 
 
 		//checking if they're clicking 
-		if (Input.GetMouseButton (0)) {
+		if (Input.GetMouseButtonDown (0)) {
 			//isLeftClicking = true;
-			anim.SetBool ("leftClick", true);
+			bool canWeAnimate = true;
+				while (canWeAnimate){
+					anim.SetTrigger ("leftClick");
+					canWeAnimate = false;
+				}
+			anim.SetTrigger ("leftClick");
 			Debug.Log ("and we're clicking...");
 
 			//casting a ray to find the gameObject they are clicking on
@@ -101,10 +106,8 @@ public class PlayerController : MonoBehaviour {
 					Destroy (tempGameObject, 1.5f);			
 				}
 				}
-			} else {
-				//isLeftClicking = false;
-				anim.SetBool ("leftClick", false);
-		}
+			} 
+			
 
 
 		//if we're facing the negative direction and not facing the right, flip
