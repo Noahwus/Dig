@@ -16,6 +16,7 @@ public class InvItem : ScriptableObject {
 	public bool isBought = false;
 	public bool isWearing = false;
 	public bool wearable = false;
+	public bool traderOwns = false;
 
 
 

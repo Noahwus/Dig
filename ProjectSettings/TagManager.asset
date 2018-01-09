@@ -11,6 +11,7 @@ TagManager:
   - pickaxe
   - ground
   - dropped
+  - Trader
   layers:
   - Default
   - TransparentFX

@@ -40,6 +40,9 @@ public class PlayerController : MonoBehaviour {
 	public GameObject baseballCap;
 	public GameObject Dirt;
 
+	public GameObject tradingOverlay;
+	public GameObject tradingButton;
+
 	//counting the inventory on pickup
 	int InventoryCount;
 
@@ -86,11 +89,11 @@ public class PlayerController : MonoBehaviour {
 		//checking if they're clicking 
 		if (Input.GetMouseButtonDown (0)) {
 			//isLeftClicking = true;
-			bool canWeAnimate = true;
-				while (canWeAnimate){
-					anim.SetTrigger ("leftClick");
-					canWeAnimate = false;
-				}
+			//bool canWeAnimate = true;
+				//while (canWeAnimate){
+					//anim.SetTrigger ("leftClick");
+					//canWeAnimate = false;
+				//}
 			anim.SetTrigger ("leftClick");
 			Debug.Log ("and we're clicking...");
 
@@ -158,7 +161,22 @@ public class PlayerController : MonoBehaviour {
 
 			}
 		}
+
 	
+	}
+
+	void OnTriggerEnter2D(Collider2D other){
+		if(other.gameObject.tag == "Trader"){
+			Debug.Log ("we can trade from here");
+			tradingButton.SetActive (true);
+
+		}
+	}
+	void OnTriggerExit2D(Collider2D other){
+		if(other.gameObject.tag == "Trader"){
+			tradingButton.SetActive (false);
+			tradingOverlay.SetActive (false);
+		}
 	}
 
 	void Update(){

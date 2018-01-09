@@ -24,3 +24,4 @@ MonoBehaviour:
   isBought: 0
   isWearing: 0
   wearable: 1
+  traderOwns: 1
