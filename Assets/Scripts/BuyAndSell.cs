@@ -37,11 +37,68 @@ public class BuyAndSell : MonoBehaviour, IPointerClickHandler {
 	}
 
 
+
+	public void Sell(){
+		itemNumber = currentItem.itemNumber;
+		//Debug.Log (masterList.itemMasterList [itemNumber].itemNumber + " current item number");
+		Debug.Log("Attempting to Sell: " + masterList.itemMasterList [itemNumber].title);
+
+		//check if it's in the player's inventory
+		if (masterList.itemMasterList [itemNumber].isInInventory) {
+			Debug.Log ("it is in the inventory");
+			//check if it has more than one of it
+			if (masterList.itemMasterList [itemNumber].quantity > 1) {
+				Debug.Log ("there is more than one");
+				//deduct one from the quantity, and add gems to player total gems
+				masterList.itemMasterList [itemNumber].quantity = masterList.itemMasterList [itemNumber].quantity - 1;
+				masterList.itemMasterList [itemNumber].traderQuantity = masterList.itemMasterList [itemNumber].traderQuantity + 1;
+				masterList.itemMasterList [itemNumber].traderOwns = true;
+			} else {
+				Debug.Log ("there is only one");
+				//there was only one, take it out of the inventory, and add gems
+				masterList.itemMasterList [itemNumber].isInInventory = false;
+				masterList.itemMasterList [itemNumber].quantity = masterList.itemMasterList [itemNumber].quantity - 1;
+				masterList.itemMasterList [itemNumber].traderQuantity = masterList.itemMasterList [itemNumber].traderQuantity + 1;
+				masterList.itemMasterList [itemNumber].traderOwns = true;
+			}
+
+		} else {
+			//was not in their inventory,cannot sell something you don't have
+
+		}
+
+	}
+
+	public void Buy(){
+		itemNumber = currentItem.itemNumber;
+		//Debug.Log (masterList.itemMasterList [itemNumber].itemNumber + " current item number");
+		Debug.Log("Attempting to Buy: " + masterList.itemMasterList [itemNumber].title);
+
+		//check if it's in the player inventory
+		if (masterList.itemMasterList [itemNumber].isInInventory) {
+			//add to the quantity and deduct gems from total
+			masterList.itemMasterList [itemNumber].quantity = masterList.itemMasterList [itemNumber].quantity + 1;
+			masterList.itemMasterList [itemNumber].traderQuantity = masterList.itemMasterList [itemNumber].traderQuantity - 1;
+			if (masterList.itemMasterList [itemNumber].traderQuantity < 1){
+				masterList.itemMasterList [itemNumber].traderOwns = false;
+			}
+		} else {
+			//wasn't in their inventory, add it to their inventory and deduct gems
+			masterList.itemMasterList [itemNumber].isInInventory = true;
+			masterList.itemMasterList [itemNumber].quantity = masterList.itemMasterList [itemNumber].quantity + 1;
+			masterList.itemMasterList [itemNumber].traderQuantity = masterList.itemMasterList [itemNumber].traderQuantity - 1;
+			if (masterList.itemMasterList [itemNumber].traderQuantity < 1){
+				masterList.itemMasterList [itemNumber].traderOwns = false;
+			}
+		}
+	}
+
+
 	public void equipClick(){
 
 
 		itemNumber = currentItem.itemNumber;
-		Debug.Log (masterList.itemMasterList [itemNumber].itemNumber + "current item number");
+		Debug.Log (masterList.itemMasterList [itemNumber].itemNumber + " current item number");
 
 		//checking if headgear when equipping
 		if (string.Equals (masterList.itemMasterList [itemNumber].itemType, "headgear")) {

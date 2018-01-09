@@ -114,6 +114,10 @@ public class PopulateTraderFromBigBook : MonoBehaviour {
 
 				if (myitem.traderOwns) {
 					//Debug.Log (myitem.title + " should be here, will not be destroyed");
+					if (myitem.quantity <= 0){
+						Destroy (GameObject.Find(myitem.name));
+						Debug.Log (myitem.title + " instance was destroyed");	
+					}
 				} 
 				if (myitem.traderOwns != true){
 					Destroy (GameObject.Find(myitem.name + "trader"));

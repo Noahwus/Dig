@@ -15,6 +15,7 @@ MonoBehaviour:
   title: Pick Axe
   itemType: pickaxe
   quantity: 1
+  traderQuantity: 1
   icon: {fileID: 21300000, guid: aea187bfb7f959d45b984ffb76ea8da2, type: 3}
   flavorText: Dig Dig Dig Dig Dig Dig Dig Dig
   cost: 25

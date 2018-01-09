@@ -15,6 +15,7 @@ MonoBehaviour:
   title: Head Lamp
   itemType: headgear
   quantity: 1
+  traderQuantity: 1
   icon: {fileID: 21300000, guid: 324d93ded9abc494e88b523ede445f3e, type: 3}
   flavorText: 'helps to see better in those dark tunnles. 20% better chance of getting
     crystals in drops. '

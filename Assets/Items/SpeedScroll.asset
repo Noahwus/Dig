@@ -15,6 +15,7 @@ MonoBehaviour:
   title: 'Speed Scroll '
   itemType: scroll
   quantity: 1
+  traderQuantity: 1
   icon: {fileID: 21300000, guid: 9889b1d09ab35c04b9a7c9dff7e31ac6, type: 3}
   flavorText: Run faster, dig faster, be faster, for 30 seconds. costs 3 crystals
     to use.

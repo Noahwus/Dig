@@ -130,7 +130,11 @@ public class PopulateInventoryListFromItemsMaster : MonoBehaviour {
 				//check that it should be there
 
 				if (myitem.isInInventory) {
-					//Debug.Log (myitem.title + " should be here, will not be destroyed");
+					//check that the quantity is above zero to stay if not then destroy it
+					if (myitem.quantity <= 0){
+						Destroy (GameObject.Find(myitem.name));
+						Debug.Log (myitem.title + " instance was destroyed");	
+					}
 				} 
 				if (myitem.isInInventory != true){
 					Destroy (GameObject.Find(myitem.name));

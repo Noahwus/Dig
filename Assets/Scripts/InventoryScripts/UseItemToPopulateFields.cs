@@ -14,6 +14,7 @@ public class UseItemToPopulateFields : MonoBehaviour {
 	public Image popupIcon;
 	public Image gearIcon;
 	public Text quantity;
+	public Text traderQuantity;
 	
 	private ItemMaster itemMaster;
 
@@ -24,6 +25,10 @@ public class UseItemToPopulateFields : MonoBehaviour {
 		PopulateGear ();
 	}
 
+	void FixedUpdate(){
+		quantity.text = itemMaster.itemMasterList [itemNumber].quantity.ToString();
+		traderQuantity.text = itemMaster.itemMasterList [itemNumber].traderQuantity.ToString();
+	}
 
 	public void PopulateInfo()
 	{
@@ -32,8 +37,8 @@ public class UseItemToPopulateFields : MonoBehaviour {
 		flavorText.text = itemMaster.itemMasterList [itemNumber].flavorText;
 		icon.sprite = itemMaster.itemMasterList [itemNumber].icon;
 		popupIcon.sprite = itemMaster.itemMasterList [itemNumber].icon;
-		quantity.text = itemMaster.itemMasterList [itemNumber].quantity.ToString();
-
+		//quantity.text = itemMaster.itemMasterList [itemNumber].quantity.ToString();
+		//traderQuantity.text = itemMaster.itemMasterList [itemNumber].traderQuantity.ToString();
 
 
 

@@ -9,6 +9,7 @@ public class InvItem : ScriptableObject {
 	public string title = "New Item";
 	public string itemType = "null";
 	public int quantity = 1;
+	public int traderQuantity = 1;
 	public Sprite icon = null;
 	public string flavorText = "boo I'm new";
 	public float cost = 110;

@@ -15,6 +15,7 @@ MonoBehaviour:
   title: Cracked Hard Hat
   itemType: headgear
   quantity: 1
+  traderQuantity: 1
   icon: {fileID: 21300000, guid: aa44c06b5f296164490e5500dfcf8443, type: 3}
   flavorText: 'A hard hat that appears to have only marginally protected the previous
     owner. 15% added chance of precious metal drops when digging. '
